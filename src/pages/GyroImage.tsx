@@ -25,7 +25,7 @@ function GyroImage() {
       )}
       <div className="mt-5">
         <img
-          src="src/assets/sansdance.gif"
+          src="/sansdance.gif" 
           alt="Gyro-controlled"
           className="w-64 h-64 object-cover rounded-lg shadow-lg"
           style={{ filter: `hue-rotate(${hue}deg)` }}
