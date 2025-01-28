@@ -30,7 +30,7 @@ const GyroHue = (): React.ReactElement | null => {
       )}
       <div className="mt-5">
         <img
-          src="https://i.pinimg.com/originals/92/02/ca/9202ca896aad9e67b8c417705ccf301a.gif"
+          src="https://i.pinimg.com/736x/31/6c/62/316c6296e87a69f304f3e42938d4f455.jpg"
           alt="Gyro-controlled"
           className="w-64 h-64 object-cover rounded-lg shadow-lg"
           style={{
