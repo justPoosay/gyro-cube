@@ -1,6 +1,6 @@
 import React from "react";
-import { useDeviceOrientation } from "./useDeviceOrientation";
-import OrientationSwitcher from "./OrientationSwitcher";
+import { useDeviceOrientation } from "../useDeviceOrientation";
+import OrientationSwitcher from "../OrientationSwitcher";
 import "./GyroCube.css";
 
 const GyroCube = (): React.ReactElement | null => {
