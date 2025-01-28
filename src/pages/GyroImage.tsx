@@ -23,22 +23,46 @@ const GyroImage = (): React.ReactElement | null => {
       <div className="gyro-cube-container">
         <div className="gyro-cube" style={cssTransformInverse}>
           <div className="gyro-cube-side gyro-cube-front">
-            <img src="https://us-tuna-sounds-images.voicemod.net/6b8bbd21-77dd-4eb9-b014-d93362ee44ae-1661652061871.jpg" />
+            <img
+              src="https://us-tuna-sounds-images.voicemod.net/6b8bbd21-77dd-4eb9-b014-d93362ee44ae-1661652061871.jpg"
+              width="250"
+              height="250"
+            />
           </div>
           <div className="gyro-cube-side gyro-cube-back">
-            <img src="https://us-tuna-sounds-images.voicemod.net/6b8bbd21-77dd-4eb9-b014-d93362ee44ae-1661652061871.jpg" />
+            <img
+              src="https://us-tuna-sounds-images.voicemod.net/6b8bbd21-77dd-4eb9-b014-d93362ee44ae-1661652061871.jpg"
+              width="250"
+              height="250"
+            />
           </div>
           <div className="gyro-cube-side gyro-cube-left">
-            <img src="https://us-tuna-sounds-images.voicemod.net/6b8bbd21-77dd-4eb9-b014-d93362ee44ae-1661652061871.jpg" />
+            <img
+              src="https://us-tuna-sounds-images.voicemod.net/6b8bbd21-77dd-4eb9-b014-d93362ee44ae-1661652061871.jpg"
+              width="250"
+              height="250"
+            />
           </div>
           <div className="gyro-cube-side gyro-cube-right">
-            <img src="https://us-tuna-sounds-images.voicemod.net/6b8bbd21-77dd-4eb9-b014-d93362ee44ae-1661652061871.jpg" />
+            <img
+              src="https://us-tuna-sounds-images.voicemod.net/6b8bbd21-77dd-4eb9-b014-d93362ee44ae-1661652061871.jpg"
+              width="250"
+              height="250"
+            />
           </div>
           <div className="gyro-cube-side gyro-cube-top">
-            <img src="https://us-tuna-sounds-images.voicemod.net/6b8bbd21-77dd-4eb9-b014-d93362ee44ae-1661652061871.jpg" />
+            <img
+              src="https://us-tuna-sounds-images.voicemod.net/6b8bbd21-77dd-4eb9-b014-d93362ee44ae-1661652061871.jpg"
+              width="250"
+              height="250"
+            />
           </div>
           <div className="gyro-cube-side gyro-cube-bottom">
-            <img src="https://us-tuna-sounds-images.voicemod.net/6b8bbd21-77dd-4eb9-b014-d93362ee44ae-1661652061871.jpg" />
+            <img
+              src="https://us-tuna-sounds-images.voicemod.net/6b8bbd21-77dd-4eb9-b014-d93362ee44ae-1661652061871.jpg"
+              width="250"
+              height="250"
+            />
           </div>
         </div>
       </div>
