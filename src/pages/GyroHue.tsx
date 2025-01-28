@@ -62,7 +62,7 @@ const GyroHue = (): React.ReactElement | null => {
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              transform: transform, 
+            //   transform: transform, 
             }}
             className="w-full h-full object-cover rounded-lg shadow-lg"
           />
