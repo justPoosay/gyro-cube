@@ -31,7 +31,7 @@ const GyroStretch = (): React.ReactElement | null => {
       )}
       <div className="mt-5">
         <img
-          src="https://pa1.aminoapps.com/6218/e55d0d6a59155aea5d552eafcc1c4ae749b5476c_00.gif"
+          src="https://i.pinimg.com/originals/92/02/ca/9202ca896aad9e67b8c417705ccf301a.gif"
           alt="Gyro-controlled"
           className="w-64 h-64 object-cover rounded-lg shadow-lg"
           style={{ transform: matrix }}
