@@ -16,7 +16,7 @@ const GyroHue = (): React.ReactElement | null => {
   // Zmieniamy położenie gradientu w odpowiedzi na orientację urządzenia
   useEffect(() => {
     if (orientation) {
-      const { alpha, beta, gamma } = orientation;
+      const { beta, gamma } = orientation;
 
       // Przesuwamy gradient na podstawie orientacji
       const translateX = gamma ? gamma * 10 : 0; // Skala dla gamma
