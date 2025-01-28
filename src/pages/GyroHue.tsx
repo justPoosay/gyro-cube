@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDeviceOrientation } from "../useDeviceOrientation";
+import '/GyroHue.css'
 
 const GyroHue = (): React.ReactElement | null => {
   const { orientation, requestAccess } = useDeviceOrientation();
@@ -28,10 +29,10 @@ const GyroHue = (): React.ReactElement | null => {
           Zezwól na czujniki
         </button>
       )}
-      <div className="mt-5">
+      <div className="mt-5 relative">
         <img
-          src="https://i.pinimg.com/736x/31/6c/62/316c6296e87a69f304f3e42938d4f455.jpg"
-          alt="Gyro-controlled"
+          src="https://static.vecteezy.com/system/resources/thumbnails/021/879/437/small_2x/holographic-stickers-square-shape-hologram-labels-and-badge-empty-png.png"
+          alt="Holographic Sticker"
           className="w-64 h-64 object-cover rounded-lg shadow-lg"
           style={{
             filter: filter,
@@ -39,6 +40,7 @@ const GyroHue = (): React.ReactElement | null => {
             height: "200px",
           }}
         />
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-400 via-pink-500 to-indigo-600 opacity-50 mix-blend-overlay animate-hologramEffect"></div>
       </div>
     </div>
   );
