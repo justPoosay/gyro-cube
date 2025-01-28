@@ -1,7 +1,7 @@
 import './App.css'
 import { Routes, Route, Link } from 'react-router-dom';
 import GyroCube from './pages/GyroCube'
-import GyroImage from './pages/GyroHueImage';
+import GyroImage from './pages/GyroImage';
 
 function App() {
   return (
