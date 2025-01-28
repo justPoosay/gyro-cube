@@ -4,7 +4,8 @@ import OrientationSwitcher from "../OrientationSwitcher";
 import "./GyroCube.css";
 
 const GyroImage = (): React.ReactElement | null => {
-  const { requestAccess, revokeAccess, cssTransformInverse } =
+  
+  const { orientation, requestAccess, revokeAccess, cssTransformInverse } =
     useDeviceOrientation();
 
   const onToggle = (toggleState: boolean): void => {
@@ -66,6 +67,13 @@ const GyroImage = (): React.ReactElement | null => {
           </div>
         </div>
       </div>
+          <div className="mt-6">
+      <ul style={{ margin: 0, padding: 0 }}>
+        <li>ɑ: {orientation && <code className="language-text">{orientation.alpha}</code>}</li>
+        <li>β: {orientation && <code className="language-text">{orientation.beta}</code>}</li>
+        <li>γ: {orientation && <code className="language-text">{orientation.gamma}</code>}</li>
+      </ul>
+    </div>
     </div>
   );
 };
