@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useDeviceOrientation } from "../useDeviceOrientation";
-import '/GyroHue.css'
 
 const GyroHue = (): React.ReactElement | null => {
   const { orientation, requestAccess } = useDeviceOrientation();
@@ -40,8 +39,30 @@ const GyroHue = (): React.ReactElement | null => {
             height: "200px",
           }}
         />
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-400 via-pink-500 to-indigo-600 opacity-50 mix-blend-overlay animate-hologramEffect"></div>
+        <div
+          className="absolute top-0 left-0 w-full h-full opacity-50 mix-blend-overlay animate-hologramEffect"
+          style={{
+            background: "linear-gradient(45deg, rgba(255,0,255,0.5), rgba(0,255,255,0.5), rgba(255,255,0,0.5))",
+          }}
+        ></div>
       </div>
+
+      <style>
+        {`
+          @keyframes hologramEffect {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+
+          .animate-hologramEffect {
+            animation: hologramEffect 3s infinite alternate;
+          }
+        `}
+      </style>
     </div>
   );
 };
