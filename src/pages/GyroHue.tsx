@@ -45,11 +45,10 @@ const GyroHue = (): React.ReactElement | null => {
             zIndex: 10,
             width: "103px",
             height: "121px",
-            background:
-              "linear-gradient(45deg, rgba(255,0,255,0.6), rgba(0,255,255,0.6), rgba(255,255,0,0.6))",
-            backgroundSize: "200% 200%",
+            background: "linear-gradient(45deg, rgba(255,0,255,0.6), rgba(0,255,255,0.6), rgba(255,255,0,0.6))",
+            backgroundSize: "100% 100%",
             // Przemieszczamy gradient w odpowiedzi na orientację
-            transform: transform,
+            // transform: transform,
             clipPath: "url(#svgClip)", // Używamy clip-path, aby przyciąć do kształtu SVG
             overflow: "hidden",
           }}
@@ -62,7 +61,7 @@ const GyroHue = (): React.ReactElement | null => {
               width: "100%",
               height: "100%",
               objectFit: "cover",
-            //   transform: transform, 
+              transform: transform,
             }}
             className="w-full h-full object-cover rounded-lg shadow-lg"
           />
