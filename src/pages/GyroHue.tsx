@@ -24,7 +24,7 @@ const GyroHue = (): React.ReactElement | null => {
 
       // Ustawiamy transformację dla gradientu
       setTransform(`translate(${translateX}px, ${translateY}px)`);
-      setTransform(`${alpha}deg, rgba(255,0,255,0.6), rgba(0,255,255,0.6), rgba(255,255,0,0.6)`);
+      setTransform(`${alpha}deg`);
     }
   }, [orientation]);
 
@@ -42,8 +42,8 @@ const GyroHue = (): React.ReactElement | null => {
             top: 0,
             width: "103px",
             height: "121px",
-            background:
-              "linear-gradient(45deg, rgba(255,0,255,0.6), rgba(0,255,255,0.6), rgba(255,255,0,0.6))",
+            background: 
+                `linear-gradient(${orientation?.alpha || 0}deg, rgba(255,0,255,0.6), rgba(0,255,255,0.6), rgba(255,255,0,0.6))`,
             // backgroundSize: "200% 200%",
             // Przemieszczamy gradient w odpowiedzi na orientację
             transform: transform,
