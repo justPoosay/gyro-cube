@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { useDeviceOrientation } from "../useDeviceOrientation";
 
 const GyroStretch = (): React.ReactElement | null => {
@@ -11,10 +11,10 @@ const GyroStretch = (): React.ReactElement | null => {
   };
 
   // Obliczanie wartości transformacji na podstawie danych żyroskopu
-  const scaleX = orientation?.beta ? 1 + (orientation.beta / 180) : 1;
-  const scaleY = orientation?.gamma ? 1 + (orientation.gamma / 180) : 1;
+  const scaleX = orientation?.beta ? 1 + orientation.beta / 180 : 1;
+  const scaleY = orientation?.gamma ? 1 + orientation.gamma / 180 : 1;
   const rotateZ = orientation?.alpha ? orientation.alpha : 0;
-  
+
   // Tworzenie efektu 3D za pomocą macierzy transformacji
   const perspective = 500;
   const matrix = `perspective(${perspective}px) rotateZ(${rotateZ}deg) scale(${scaleX}, ${scaleY})`;
@@ -34,11 +34,11 @@ const GyroStretch = (): React.ReactElement | null => {
           src="https://i.pinimg.com/originals/92/02/ca/9202ca896aad9e67b8c417705ccf301a.gif"
           alt="Gyro-controlled"
           className="w-64 h-64 object-cover rounded-lg shadow-lg"
-          style={{ transform: matrix }}
+          style={{ transform: matrix, width: "200px", height: "200px" }}
         />
       </div>
     </div>
   );
-}
+};
 
 export default GyroStretch;
