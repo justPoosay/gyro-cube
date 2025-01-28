@@ -16,7 +16,7 @@ const GyroHue = (): React.ReactElement | null => {
   // Zmieniamy położenie gradientu w odpowiedzi na orientację urządzenia
   useEffect(() => {
     if (orientation) {
-      const { beta, gamma } = orientation;
+      const { alpha, beta, gamma } = orientation;
 
       // Przesuwamy gradient na podstawie orientacji
       const translateX = gamma ? gamma * 1.5 : 0; // Skala dla gamma
@@ -24,49 +24,33 @@ const GyroHue = (): React.ReactElement | null => {
 
       // Ustawiamy transformację dla gradientu
       setTransform(`translate(${translateX}px, ${translateY}px)`);
+      setTransform(`${alpha}deg, rgba(255,0,255,0.6), rgba(0,255,255,0.6), rgba(255,255,0,0.6)`);
     }
   }, [orientation]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+    <div>
       {!accessGranted && (
-        <button
-          onClick={handleRequestAccess}
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600"
-        >
-          Zezwól na czujniki
-        </button>
+        <button onClick={handleRequestAccess}>Zezwól na czujniki</button>
       )}
 
-      <div className="mt-5 relative w-64 h-64">
+      <div>
         <div
-          className="relative w-full h-full rounded-lg overflow-hidden"
           style={{
-            zIndex: 10,
+            position: "absolute",
+            left: 0,
+            top: 0,
             width: "103px",
             height: "121px",
             background:
               "linear-gradient(45deg, rgba(255,0,255,0.6), rgba(0,255,255,0.6), rgba(255,255,0,0.6))",
-            backgroundSize: "200% 200%",
+            // backgroundSize: "200% 200%",
             // Przemieszczamy gradient w odpowiedzi na orientację
             transform: transform,
             clipPath: "url(#svgClip)", // Używamy clip-path, aby przyciąć do kształtu SVG
             overflow: "hidden",
           }}
         >
-          <img
-            src="/godlo.svg"
-            alt="Holographic Sticker"
-            style={{
-              filter: "opacity(0.5) grayscale(1)",
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              transform: transform, 
-            }}
-            className="w-full h-full object-cover rounded-lg shadow-lg"
-          />
-
           <svg width="0" height="0">
             <defs>
               <clipPath id="svgClip">
@@ -84,6 +68,20 @@ const GyroHue = (): React.ReactElement | null => {
           </svg>
         </div>
       </div>
+      <img
+        src="/godlo.svg"
+        alt="Holographic Sticker"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          filter: "opacity(0.5) grayscale(1)",
+          width: "103px",
+          height: "121px",
+          objectFit: "cover",
+          transform: transform,
+        }}
+      />
     </div>
   );
 };
