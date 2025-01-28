@@ -17,7 +17,7 @@ function App() {
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/gyrocube" element={<GyroCube />} />
-        <Route path="/gyrocube" element={<GyroImage />} />
+        <Route path="/sansdance" element={<GyroImage />} />
       </Routes>
     </div>
   );
