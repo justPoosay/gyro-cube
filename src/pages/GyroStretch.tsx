@@ -26,7 +26,7 @@ const GyroStretch = (): React.ReactElement | null => {
       )}
       <div className="mt-5">
         <img
-          src="../assets/sansdance.gif"
+          src="https://pa1.aminoapps.com/6218/e55d0d6a59155aea5d552eafcc1c4ae749b5476c_00.gif"
           alt="Gyro-controlled"
           className="w-64 h-64 object-cover rounded-lg shadow-lg"
           style={{ transform: `scale(${scaleX}, ${scaleY})` }}
