@@ -43,7 +43,7 @@ const GyroHue = (): React.ReactElement | null => {
             width: "103px",
             height: "121px",
             background: 
-                `linear-gradient(${orientation?.alpha || 0}deg, rgba(255,0,255,0.6), rgba(0,255,255,0.6), rgba(255,255,0,0.6))`,
+                `linear-gradient(${orientation?.alpha || 0}deg, rgba(255,0,255,1), rgba(0,255,255,1), rgba(255,255,0,1))`,
             // backgroundSize: "200% 200%",
             // Przemieszczamy gradient w odpowiedzi na orientację
             transform: transform,
