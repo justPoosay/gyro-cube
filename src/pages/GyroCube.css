@@ -1,6 +1,7 @@
 .post--2021--water-line--gyro-cube .gyro-cube-container {
   height: 400px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   perspective: 800px;
@@ -53,4 +54,11 @@
 .post--2021--water-line--gyro-cube .gyro-cube-bottom {
   background-color: #64dd17;
   transform: translateY(100px) rotateX(90deg);
+}
+
+/* Media Query for smaller screens (mobiles) */
+@media screen and (max-width: 768px) {
+  .post--2021--water-line--gyro-cube .gyro-cube-container {
+    height: 300px;
+  }
 }
