@@ -1,0 +1,51 @@
+/* Kontener główny */
+
+
+/* Przycisk, 20px nad obrazkiem */
+.gyro-hue-button-container {
+    margin-bottom: 200px;
+}
+
+/* Obrazek, w centrum strony */
+.gyro-hue-image-container {
+  position: absolute;
+  top: 50%; /* Pozycjonowanie w pionie */
+  left: 50%; /* Pozycjonowanie w poziomie */
+  transform: translate(-50%, -50%); /* Wyrównanie na środku */
+  width: 103px;
+  height: 121px;
+  clip-path: url(#svgClip);
+  overflow: hidden;
+  transition: background 0.1s linear, filter 0.1s linear;
+}
+
+/* Wstawianie obrazka, w centrum */
+.gyro-hue-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Wyrównanie na środek */
+  filter: opacity(0.5) grayscale(1);
+  width: 103px;
+  height: 121px;
+  object-fit: cover;
+}
+
+/* Dane żyroskopowe, 20px poniżej obrazka */
+.gyro-hue-data {
+  position: absolute;
+  top: calc(50% + 60px); /* Pozycjonowanie poniżej obrazu (20px marginesu) */
+  left: 50%;
+  transform: translateX(-50%); /* Centruje poziomo względem rodzica */
+  margin-top: 20px; /* Dodatkowy margines, aby uzyskać odpowiednią przestrzeń */
+}
+
+/* Lista z danymi żyroskopu */
+.gyro-hue-data ul {
+  margin: 0;
+  padding: 0;
+}
+
+.language-text {
+  font-family: monospace;
+}

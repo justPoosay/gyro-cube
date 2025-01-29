@@ -7,14 +7,13 @@
 
 nav {
   background-color: #333;
-  padding: 10px;
+  padding: 15px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  gap: 10px;
   z-index: 1000;
 }
 
@@ -29,20 +28,6 @@ nav a {
 nav a:hover {
   background-color: #555;
   border-radius: 5px;
-}
-
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 @keyframes logo-spin {

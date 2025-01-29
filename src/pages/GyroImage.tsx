@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDeviceOrientation } from "../useDeviceOrientation";
+import OrientationSwitcher from "../OrientationSwitcher";
 import "./GyroCube.css";
+import "./GyroImage.css";
 
 const GyroCube = (): React.ReactElement | null => {
-  const { requestAccess, cssTransformInverse } = useDeviceOrientation();
-  const [loadedImage, setLoadedImage] = useState("");
+  const { requestAccess, revokeAccess, cssTransformInverse } =
+    useDeviceOrientation();
 
-  useEffect(() => {
-    requestAccess();
-  }, [requestAccess]);
+  const [loadedImage, setLoadedImage] = useState("");
+  const onToggle = (toggleState: boolean): void => {
+    toggleState ? requestAccess() : revokeAccess();
+  };
 
   const handleFileChange = (file: File | null) => {
     if (file) {
@@ -30,25 +33,13 @@ const GyroCube = (): React.ReactElement | null => {
   };
 
   return (
-    <div className="gyro-cube-wrapper" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+    <div className="gyro-cube-wrapper">
+      <div className="orientation-switcher-container"></div>
       {!loadedImage ? (
         <div
           className="drop-area"
           onDragOver={(e) => e.preventDefault()}
           onDrop={handleDrop}
-          style={{
-            width: "300px",
-            height: "300px",
-            borderRadius: "10px",
-            backgroundColor: "whitesmoke",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)"
-          }}
         >
           <button
             onClick={() => document.getElementById("fileInput")?.click()}
@@ -67,21 +58,31 @@ const GyroCube = (): React.ReactElement | null => {
           />
         </div>
       ) : (
-        <div className="post--2021--water-line--gyro-cube" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+        <div className="post--2021--water-line--gyro-cube">
+          <OrientationSwitcher
+            onToggle={onToggle}
+            labelOff="Turn the Gyro-Cube ON"
+            labelOn="Turn the Gyro-Cube OFF"
+          />
           <div className="gyro-cube-container">
             <div className="gyro-cube" style={cssTransformInverse}>
-              {["front", "back", "left", "right", "top", "bottom"].map((side) => (
-                <div key={side} className={`gyro-cube-side gyro-cube-${side}`}>
-                  {loadedImage && (
-                    <img
-                      src={loadedImage}
-                      width="200"
-                      height="200"
-                      alt={`Side ${side}`}
-                    />
-                  )}
-                </div>
-              ))}
+              {["front", "back", "left", "right", "top", "bottom"].map(
+                (side) => (
+                  <div
+                    key={side}
+                    className={`gyro-cube-side gyro-cube-${side}`}
+                  >
+                    {loadedImage && (
+                      <img
+                        src={loadedImage}
+                        width="200"
+                        height="200"
+                        alt={`Side ${side}`}
+                      />
+                    )}
+                  </div>
+                )
+              )}
             </div>
           </div>
         </div>
