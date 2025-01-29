@@ -5,25 +5,25 @@ const GyroHue = (): React.ReactElement | null => {
   const { orientation, requestAccess } = useDeviceOrientation();
   const [accessGranted, setAccessGranted] = useState(false);
 
-  const handleRequestAccess = async () => {
-    const granted = await requestAccess();
-    setAccessGranted(granted);
-  };
+  useEffect(() => {
+    const handleRequestAccess = async () => {
+      const granted = await requestAccess();
+      setAccessGranted(granted);
+    };
+
+    handleRequestAccess();
+  }, [requestAccess]);
 
   const [gradientStyle, setGradientStyle] = useState({});
-
 
   useEffect(() => {
     if (orientation) {
       const { alpha, beta, gamma } = orientation;
 
       if (alpha !== null && beta !== null && gamma !== null) {
-        // Obliczenia dla efektu światła
-        const hueRotate = alpha * 2; // Obrót odcienia
-        const brightness = 1 + Math.sin(beta * (Math.PI / 180)) * 0.3; // Efekt odbicia
-        const contrast = 1 + Math.sin(gamma * (Math.PI / 180)) * 0.2; // Zmiana kontrastu
-
-        // Dynamiczne położenie gradientu
+        const hueRotate = alpha * 2;
+        const brightness = 1 + Math.sin(beta * (Math.PI / 180)) * 0.3;
+        const contrast = 1 + Math.sin(gamma * (Math.PI / 180)) * 0.2;
         const backgroundPositionX = `${50 + gamma * 0.5}%`;
         const backgroundPositionY = `${50 + beta * 0.5}%`;
 
@@ -38,29 +38,38 @@ const GyroHue = (): React.ReactElement | null => {
   }, [orientation]);
 
   return (
-    <div>
-      {!accessGranted && (
-        <button onClick={handleRequestAccess}>Zezwól na czujniki</button>
-      )}
+    <>
+      <style>
+        {`
+          body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+          }
+        `}
+      </style>
 
-    <ul style={{ margin: 0, padding: 0 }}>
-        <li>ɑ: {orientation && <code className="language-text">{orientation.alpha}</code>}</li>
-        <li>β: {orientation && <code className="language-text">{orientation.beta}</code>}</li>
-        <li>γ: {orientation && <code className="language-text">{orientation.gamma}</code>}</li>
-      </ul>
-
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column", 
+          justifyContent: "center",
+          alignItems: "center",
+          position: "relative",
+        }}
+      >
         <div
           style={{
-            position: "absolute",
-            left: 0,
-            top: 0,
+            position: "relative",
             width: "103px",
             height: "121px",
             clipPath: "url(#svgClip)",
             overflow: "hidden",
             transition: "background 0.1s linear, filter 0.1s linear",
-            ...gradientStyle, // Dynamiczne style
+            ...gradientStyle,
           }}
         >
           <svg width="0" height="0">
@@ -79,22 +88,37 @@ const GyroHue = (): React.ReactElement | null => {
             </defs>
           </svg>
         </div>
-      </div>
 
-      <img
-        src="/godlo.svg"
-        alt="Holographic Sticker"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          filter: "opacity(0.5) grayscale(1)",
-          width: "103px",
-          height: "121px",
-          objectFit: "cover",
-        }}
-      />
-    </div>
+        <img
+          src="/godlo.svg"
+          alt="Holographic Sticker"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            filter: "opacity(0.5) grayscale(1)",
+            width: "103px",
+            height: "121px",
+            objectFit: "cover",
+          }}
+        />
+
+        <div
+          style={{
+            marginTop: "20px",
+            textAlign: "center",
+          }}
+        >
+          {!accessGranted && <p>Proszę czekać, uzyskiwanie dostępu do czujników...</p>}
+
+          <ul style={{ margin: 0, padding: 0 }}>
+            <li>ɑ: {orientation && <code className="language-text">{orientation.alpha}</code>}</li>
+            <li>β: {orientation && <code className="language-text">{orientation.beta}</code>}</li>
+            <li>γ: {orientation && <code className="language-text">{orientation.gamma}</code>}</li>
+          </ul>
+        </div>
+      </div>
+    </>
   );
 };
 
